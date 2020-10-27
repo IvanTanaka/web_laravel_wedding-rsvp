@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/rsvp', 'RsvpController@index');
+Route::post('/rsvp', 'RsvpController@add');
+
+Auth::routes(['register' => false]);
+
+Route::get('/', 'HomeController@index')->name('home');
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::get('', 'UserController@index');
 });
