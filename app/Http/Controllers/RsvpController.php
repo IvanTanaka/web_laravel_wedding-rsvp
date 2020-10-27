@@ -17,6 +17,6 @@ class RsvpController extends Controller
         $rsvp->attending = $request->attend=="true"?$request->rsvpPerson:0;
         $rsvp->vege = $request->dietary=="true";
         $rsvp->save();
-        return redirect('rsvp');
+        return redirect('');
     }
 }
